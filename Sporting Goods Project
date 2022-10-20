@@ -1,0 +1,37 @@
+#In this SQL, I'm querying a database with multiple tables in it to show the items being sold for each sport and the price of each item.
+
+CREATE TABLE Sporting_Goods (id INTEGER PRIMARY KEY, name TEXT, sport TEXT, price INTEGER, sale INTEGER);
+
+INSERT INTO Sporting_Goods VALUES (1, "Tennis Racket", "Tennis", 15.99, 0);
+INSERT INTO Sporting_Goods VALUES (2, "Tennis Ball", "Tennis", 4.98, 1);
+INSERT INTO Sporting_Goods VALUES (3, "Driver", "Golf", 249.99, 0);
+INSERT INTO Sporting_Goods VALUES (4, "Putter", "Golf", 179.99, 0);
+INSERT INTO Sporting_Goods VALUES (5, "Golf Balls", "Golf", 29.98, 1);
+INSERT INTO Sporting_Goods VALUES (6, "Golf Shoes", "Golf", 79.99, 0);
+INSERT INTO Sporting_Goods VALUES (7, "Visor", "Headwear", 35.99, 0);
+INSERT INTO Sporting_Goods VALUES (8, "Sunglasses", "Headwear", 15.98, 1);
+INSERT INTO Sporting_Goods VALUES (9, "Baseball Glove", "Baseball", 69.99, 0);
+INSERT INTO Sporting_Goods VALUES (10, "Catcher's Mitt", "Baseball", 89.99, 0);
+INSERT INTO Sporting_Goods VALUES (11, "Baseball Bat", "Baseball", 109.98, 1);
+INSERT INTO Sporting_Goods VALUES (12, "Batting Gloves", "Baseball", 19.99, 0);
+INSERT INTO Sporting_Goods VALUES (13, "Fishing Rod", "Fishing", 79.98, 1);
+INSERT INTO Sporting_Goods VALUES (14, "Fishing Reel", "Fishing", 39.99, 0);
+INSERT INTO Sporting_Goods VALUES (15, "Fishing Line", "Fishing", 12.98, 1);
+
+#1. What items do you sell in the store?
+
+SELECT name FROM Sporting_Goods
+ORDER BY name ASC;
+
+#2. How much does everything cost for each sport?
+
+SELECT sport,SUM(price) FROM Sporting_Goods
+GROUP BY sport;
+
+#3. Can you show me the items on sale and how much they cost for each sport?
+
+SELECT sport,name,sale FROM Sporting_Goods
+WHERE sale = '1'
+ORDER BY sport;
+
+
