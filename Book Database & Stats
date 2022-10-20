@@ -1,0 +1,11 @@
+--Create a database for a list of books
+
+CREATE TABLE books (id INTEGER PRIMARY KEY, name TEXT, rating INTEGER);
+
+INSERT INTO books VALUES (1, "Captain Underpants", 5);
+INSERT INTO books VALUES (2, "Diary of a Wimpy Kid", 3);
+INSERT INTO books VALUES (3, "Where the Wild Things Are", 4);
+
+--Display the database ordered by rating
+SELECT * FROM books
+ORDER BY rating DESC;
